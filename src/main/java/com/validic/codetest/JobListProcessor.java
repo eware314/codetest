@@ -1,22 +1,28 @@
 package com.validic.codetest;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 
 import static java.util.stream.Collectors.groupingBy;
 
 public class JobListProcessor {
 
-
-    public void groupJobsByCityAndLanguage(List<Job> jobs) {
-
-        final Map<String, Map<String, List<Job>>> jobsByCityAndLanguage = jobs.stream().collect(
+    public Map<String, Map<String, Map<String, List<Job>>>> groupByCityLanguageAndType(List<Job> persons) {
+        Map<String, Map<String, Map<String, List<Job>>>> jobsByCityLanguageAndType = persons.stream().collect(
                 groupingBy(Job::getCity,
-                        groupingBy(Job::getLanguage)
+                        groupByLanguageAndType()
                 )
         );
-        System.out.println("");
+//        System.out.println("" +
+//                jobsByCityLanguageAndType.get("Boston").get("Java").get("fullTime").size());
+
+        return jobsByCityLanguageAndType;
     }
+
+    private Collector<Job, ?, Map<String, Map<String, List<Job>>>> groupByLanguageAndType() {
+        return groupingBy(Job::getLanguage, groupingBy(Job::getType));
+    }
+
 
 }

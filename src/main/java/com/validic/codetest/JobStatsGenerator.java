@@ -1,6 +1,7 @@
 package com.validic.codetest;
 
 import java.util.List;
+import java.util.Map;
 
 public class JobStatsGenerator {
 
@@ -10,12 +11,13 @@ public class JobStatsGenerator {
         List<Job> jobList = new JobListRetriever().getJobList(languages, cities);
 
 
-
         //Process list into job report
-        new JobListProcessor().groupJobsByCityAndLanguage(jobList);
+        Map<String, Map<String, Map<String, List<Job>>>> jobMap = new JobListProcessor().groupByCityLanguageAndType(jobList);
 
 
         //output job report
+        ConsoleReportWriter reportWriter = new ConsoleReportWriter();
+        reportWriter.generateReportToConsole(jobMap);
 
     }
 
