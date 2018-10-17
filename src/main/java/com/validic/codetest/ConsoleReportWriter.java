@@ -30,7 +30,7 @@ public class ConsoleReportWriter implements IReportWriter {
 
             grandTotal += jobTotalByCity;
         }
-        System.out.println("\n\n Sourced " + grandTotal + "total jobs");
+        System.out.println("\n\n Sourced " + grandTotal + " total jobs");
 
     }
 

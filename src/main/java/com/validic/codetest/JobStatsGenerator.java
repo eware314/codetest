@@ -1,11 +1,12 @@
 package com.validic.codetest;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
 public class JobStatsGenerator {
 
-    public void generateJobStats(List<String> languages, List<String> cities) {
+    public void generateJobStats(List<String> languages, List<String> cities) throws UnsupportedEncodingException {
 
         //Retrieve list of jobs from github API
         List<Job> jobList = new JobListRetriever().getJobList(languages, cities);

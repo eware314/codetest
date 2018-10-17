@@ -20,7 +20,7 @@ public class CodetestApplication {
         return args -> {
 
             //hand in list of languages and list of cities we care about
-            List<String> languages = Arrays.asList("python", "java", "ruby", "node", "c#", "groovy", "javascript", "swift", "scala", "rust");
+            List<String> languages = Arrays.asList("c#", "python", "java", "ruby", "node", "groovy", "javascript", "swift", "scala", "rust");
 
             List<String> cities = Arrays.asList("Boston", "San Francisco", "Los Angeles", "Denver", "Boulder", "Chicago", "New York");
 
