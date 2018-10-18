@@ -1,5 +1,6 @@
 package com.validic.codetest;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.UnsupportedEncodingException;
@@ -8,12 +9,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+@Component
 public class JobListRetriever {
 
-    public List<Job> getJobList(List<String> languages, List<String> cities) throws UnsupportedEncodingException {
+    private RestTemplate restTemplate;
 
-        //use RestTemplate to retrieve job list from github API, returns JSON
-        RestTemplate restTemplate = new RestTemplate();
+    public JobListRetriever(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public List<Job> getJobList(List<String> languages, List<String> cities) throws UnsupportedEncodingException {
 
         List<Job> jobList = new ArrayList<>();
         for (String city : cities) {

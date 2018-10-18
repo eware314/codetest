@@ -9,6 +9,15 @@ public class Job {
     private String language;
     private String type;
 
+    public Job() {
+    }
+
+    public Job(String city, String language, String type) {
+        this.city = city;
+        this.language = language;
+        this.type = type;
+    }
+
     public String getCity() {
         return city;
     }
